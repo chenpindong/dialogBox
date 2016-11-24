@@ -1,0 +1,731 @@
+.dialog-box {
+	line-height: 1.6;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 17px;
+}
+
+.dialog-box .mask {
+	position: fixed;
+	z-index: 99998;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	/*background-color: #000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity .4s linear;
+	-moz-transition: opacity .4s linear;
+	-o-transition: opacity .4s linear;
+	transition: opacity .4s linear*/
+}
+
+.dialog-box .mask.hide {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+
+/*.dialog-box.in .mask {
+	display: block;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+*/
+
+.dialog-box .dialog {
+	position: fixed;
+	z-index: 99999;
+	width: 500px;
+	top: -25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #FAFAFC;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	text-align: center;
+	border-radius: 3px;
+}
+
+.dialog-box.in .dialog {
+	top: 50%;
+}
+
+.dialog-box .dialog.slide {
+	top: -25%;
+	opacity: 0;
+	-webkit-transition: opacity .3s linear, top .3s ease-out;
+	-moz-transition: opacity .3s linear, top .3s ease-out;
+	-o-transition: opacity .3s linear, top .3s ease-out;
+	transition: opacity .3s linear, top .3s ease-out;
+	transform: translate(-50%, 0%);
+}
+
+.dialog-box.in .dialog.slide {
+	top: 20%;
+	opacity: 1;
+}
+
+.dialog-box .dialog .dialog-hd {
+	padding: 1.2em 20px .5em;
+}
+
+.dialog-box .dialog-confirm,
+.dialog-box .dialog-confirm .dialog-bd {
+	text-align: left;
+}
+
+.dialog-box .dialog .dialog-title {
+	font-weight: 400;
+}
+
+.dialog-box .dialog .dialog-bd {
+	padding: 0 20px;
+	font-size: 15px;
+	color: #888;
+}
+
+.dialog-box .dialog .dialog-ft {
+	position: relative;
+	line-height: 42px;
+	margin-top: 20px;
+}
+
+.dialog-box .dialog .dialog-ft:after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	border-top: 1px solid #D5D5D6;
+	-webkit-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scaleY(0.5);
+	-ms-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+}
+
+.dialog-box .dialog .dialog-ft a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+}
+
+.dialog-box .dialog-confirm .dialog-ft a {
+	position: relative;
+	float: left;
+	width: 50%;
+}
+
+.dialog-box .dialog-confirm .dialog-ft a:after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	height: 100%;
+	border-right: 1px solid #D5D5D6;
+	-webkit-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scaleX(0.5);
+	-ms-transform: scaleX(0.5);
+	transform: scaleX(0.5);
+}
+
+.dialog-box .dialog-confirm .dialog-ft a:last-child {
+	float: none;
+	width: auto;
+	overflow: hidden;
+	*zoom: 1;
+	border-right: none;
+}
+
+.dialog-box .btn-dialog.default {
+	color: #353535;
+}
+
+.dialog-box .btn-dialog.primary {
+	color: #0BB20C;
+}
+
+
+/***loading弹框***/
+
+.dialog-box .toast {
+	display: none;
+	position: fixed;
+	z-index: 99999;
+	width: 7.6em;
+	min-height: 7.6em;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(40, 40, 40, 0.75);
+	text-align: center;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+
+.dialog-box.in .toast{
+	display: block;
+}
+
+.dialog-box .toast .loading {
+	position: absolute;
+	width: 0px;
+	z-index: 2000000000;
+	left: 50%;
+	top: 38%;
+}
+
+.dialog-box .toast .loading .loading-leaf {
+	position: absolute;
+	top: -1px;
+	opacity: 0.25;
+}
+
+.dialog-box .toast .loading .loading-leaf:before {
+	content: " ";
+	position: absolute;
+	width: 8.14px;
+	height: 3.08px;
+	background: rgb(209, 209, 213);
+	box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px;
+	border-radius: 1px;
+	transform-origin: left 50% 0px;
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-0 {
+	animation: opacity-60-25-0-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-0:before {
+	transform: rotate(0deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-1 {
+	animation: opacity-60-25-1-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-1:before {
+	transform: rotate(30deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-2 {
+	animation: opacity-60-25-2-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-2:before {
+	transform: rotate(60deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-3 {
+	animation: opacity-60-25-3-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-3:before {
+	transform: rotate(90deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-4 {
+	animation: opacity-60-25-4-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-4:before {
+	transform: rotate(120deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-5 {
+	animation: opacity-60-25-5-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-5:before {
+	transform: rotate(150deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-6 {
+	animation: opacity-60-25-6-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-6:before {
+	transform: rotate(180deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-7 {
+	animation: opacity-60-25-7-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-7:before {
+	transform: rotate(210deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-8 {
+	animation: opacity-60-25-8-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-8:before {
+	transform: rotate(240deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-9 {
+	animation: opacity-60-25-9-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-9:before {
+	transform: rotate(270deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-10 {
+	animation: opacity-60-25-10-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-10:before {
+	transform: rotate(300deg) translate(7.92px, 0px);
+}
+
+.dialog-box .toast .loading .loading-leaf.loading-leaf-11 {
+	animation: opacity-60-25-11-12 1.25s linear infinite;
+}
+.dialog-box .toast .loading .loading-leaf.loading-leaf-11:before {
+	transform: rotate(330deg) translate(7.92px, 0px);
+}
+
+@keyframes opacity-60-25-0-12 {
+	0% {
+		opacity: 0.25;
+	}
+	0.01% {
+		opacity: 0.25;
+	}
+	0.02% {
+		opacity: 1;
+	}
+	60.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes opacity-60-25-1-12 {
+	0% {
+		opacity: 0.25;
+	}
+	8.34333% {
+		opacity: 0.25;
+	}
+	8.35333% {
+		opacity: 1;
+	}
+	68.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes opacity-60-25-2-12 {
+	0% {
+		opacity: 0.25;
+	}
+	16.6767% {
+		opacity: 0.25;
+	}
+	16.6867% {
+		opacity: 1;
+	}
+	76.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes opacity-60-25-3-12 {
+	0% {
+		opacity: 0.25;
+	}
+	25.01% {
+		opacity: 0.25;
+	}
+	25.02% {
+		opacity: 1;
+	}
+	85.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes opacity-60-25-4-12 {
+	0% {
+		opacity: 0.25;
+	}
+	33.3433% {
+		opacity: 0.25;
+	}
+	33.3533% {
+		opacity: 1;
+	}
+	93.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@keyframes opacity-60-25-5-12 {
+	0% {
+		opacity: 0.270958333333333;
+	}
+	41.6767% {
+		opacity: 0.25;
+	}
+	41.6867% {
+		opacity: 1;
+	}
+	1.67667% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.270958333333333;
+	}
+}
+
+@keyframes opacity-60-25-6-12 {
+	0% {
+		opacity: 0.375125;
+	}
+	50.01% {
+		opacity: 0.25;
+	}
+	50.02% {
+		opacity: 1;
+	}
+	10.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.375125;
+	}
+}
+
+@keyframes opacity-60-25-7-12 {
+	0% {
+		opacity: 0.479291666666667;
+	}
+	58.3433% {
+		opacity: 0.25;
+	}
+	58.3533% {
+		opacity: 1;
+	}
+	18.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.479291666666667;
+	}
+}
+
+@keyframes opacity-60-25-8-12 {
+	0% {
+		opacity: 0.583458333333333;
+	}
+	66.6767% {
+		opacity: 0.25;
+	}
+	66.6867% {
+		opacity: 1;
+	}
+	26.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.583458333333333;
+	}
+}
+
+@keyframes opacity-60-25-9-12 {
+	0% {
+		opacity: 0.687625;
+	}
+	75.01% {
+		opacity: 0.25;
+	}
+	75.02% {
+		opacity: 1;
+	}
+	35.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.687625;
+	}
+}
+
+@keyframes opacity-60-25-10-12 {
+	0% {
+		opacity: 0.791791666666667;
+	}
+	83.3433% {
+		opacity: 0.25;
+	}
+	83.3533% {
+		opacity: 1;
+	}
+	43.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.791791666666667;
+	}
+}
+
+@keyframes opacity-60-25-11-12 {
+	0% {
+		opacity: 0.895958333333333;
+	}
+	91.6767% {
+		opacity: 0.25;
+	}
+	91.6867% {
+		opacity: 1;
+	}
+	51.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.895958333333333;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-0-12 {
+	0% {
+		opacity: 0.25;
+	}
+	0.01% {
+		opacity: 0.25;
+	}
+	0.02% {
+		opacity: 1;
+	}
+	60.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-1-12 {
+	0% {
+		opacity: 0.25;
+	}
+	8.34333% {
+		opacity: 0.25;
+	}
+	8.35333% {
+		opacity: 1;
+	}
+	68.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-2-12 {
+	0% {
+		opacity: 0.25;
+	}
+	16.6767% {
+		opacity: 0.25;
+	}
+	16.6867% {
+		opacity: 1;
+	}
+	76.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-3-12 {
+	0% {
+		opacity: 0.25;
+	}
+	25.01% {
+		opacity: 0.25;
+	}
+	25.02% {
+		opacity: 1;
+	}
+	85.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-4-12 {
+	0% {
+		opacity: 0.25;
+	}
+	33.3433% {
+		opacity: 0.25;
+	}
+	33.3533% {
+		opacity: 1;
+	}
+	93.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.25;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-5-12 {
+	0% {
+		opacity: 0.270958333333333;
+	}
+	41.6767% {
+		opacity: 0.25;
+	}
+	41.6867% {
+		opacity: 1;
+	}
+	1.67667% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.270958333333333;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-6-12 {
+	0% {
+		opacity: 0.375125;
+	}
+	50.01% {
+		opacity: 0.25;
+	}
+	50.02% {
+		opacity: 1;
+	}
+	10.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.375125;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-7-12 {
+	0% {
+		opacity: 0.479291666666667;
+	}
+	58.3433% {
+		opacity: 0.25;
+	}
+	58.3533% {
+		opacity: 1;
+	}
+	18.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.479291666666667;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-8-12 {
+	0% {
+		opacity: 0.583458333333333;
+	}
+	66.6767% {
+		opacity: 0.25;
+	}
+	66.6867% {
+		opacity: 1;
+	}
+	26.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.583458333333333;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-9-12 {
+	0% {
+		opacity: 0.687625;
+	}
+	75.01% {
+		opacity: 0.25;
+	}
+	75.02% {
+		opacity: 1;
+	}
+	35.01% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.687625;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-10-12 {
+	0% {
+		opacity: 0.791791666666667;
+	}
+	83.3433% {
+		opacity: 0.25;
+	}
+	83.3533% {
+		opacity: 1;
+	}
+	43.3433% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.791791666666667;
+	}
+}
+
+@-webkit-keyframes opacity-60-25-11-12 {
+	0% {
+		opacity: 0.895958333333333;
+	}
+	91.6767% {
+		opacity: 0.25;
+	}
+	91.6867% {
+		opacity: 1;
+	}
+	51.6767% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 0.895958333333333;
+	}
+}
+
+.dialog-box .toast .toast-content {
+	margin: 64% 0 15px;
+}
+
+/***loading弹框***/
+
+@media screen and (max-width: 767px) {
+	.dialog-box.in .dialog.slide {
+		top: 10%;
+	}
+	.dialog-box .dialog {
+		width: 85%;
+	}
+}
