@@ -15,10 +15,10 @@
 			callback: null //按钮回调函数    result:0  点击取消按钮；1 点击确认按钮
 		};
 
-		if (options.type === 'alert') {
+		if(options.type === 'alert') {
 			//alert弹框： maskCancel默认值：true
 			defaults.maskCancel = true;
-		} else if (options.type === 'loading') {
+		} else if(options.type === 'loading') {
 			//loading弹框： message默认值：数据加载中；maskCancel默认值false
 			defaults.message = '数据加载中';
 			//loading弹框没有从上向下滚动显示模式
@@ -55,7 +55,7 @@
 
 			html += '<div class="dialog-box">';
 
-			if (self.options.type === 'loading') {
+			if(self.options.type === 'loading') {
 				html += '<div class="mask' + (self.options.showMask ? '' : ' hide') + '"></div>';
 				html += '<div class="toast"><div class="loading">';
 				html += '<div class="loading-leaf loading-leaf-0"></div>';
@@ -76,9 +76,9 @@
 				html += '<div class="dialog-hd"><strong class="dialog-title">' + self.options.title + '</strong></div>';
 				html += '<div class="dialog-bd">' + self.options.message + '</div><div class="dialog-ft">';
 
-				if (self.options.type === 'alert') {
+				if(self.options.type === 'alert') {
 					html += '<a href="javascript:void(0);" class="btn-dialog primary cancel">' + self.options.confirm + '</a>';
-				} else if (self.options.type === 'confirm') {
+				} else if(self.options.type === 'confirm') {
 					html += '<a href="javascript:void(0);" class="btn-dialog default cancel">' + self.options.cancel + '</a>';
 					html += '<a href="javascript:void(0);" class="btn-dialog primary confirm">' + self.options.confirm + '</a>';
 				}
@@ -99,16 +99,16 @@
 
 			self.$dialogBox.on('click', '.cancel', function() {
 				self.close();
-				if (self.options.callback) {
+				if(self.options.callback) {
 					self.options.callback(0);
 				}
 			}).on('click', '.confirm', function() {
 				self.close();
-				if (self.options.callback) {
+				if(self.options.callback) {
 					self.options.callback(1);
 				}
 			}).on('click', '.mask', function() {
-				if (self.options.maskCancel) {
+				if(self.options.maskCancel) {
 					self.close();
 				}
 			});
@@ -118,14 +118,14 @@
 			var self = this,
 				$mask = self.$dialogBox.find('.mask');
 
-			if (!self.isShow) return;
-			
+			if(!self.isShow) return;
+
 			self.$dialogBox.removeClass('in');
 			self.$dialogBox.find('.mask');
 
-			if (self.options.slide) {
+			if(self.options.slide) {
 				setTimeout(function() {
-					if ($mask) {
+					if($mask) {
 						$mask.hide();
 					}
 				}, 400);
@@ -137,8 +137,8 @@
 		setTimeout: function() {
 			var self = this,
 				time = self.options.time;
-				
-			if (typeof time === 'number' && time > 0) {
+
+			if(typeof time === 'number' && time > 0) {
 				setTimeout(function() {
 					self.close();
 				}, time);
